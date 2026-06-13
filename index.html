@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zainab Shaikh — Python Developer & AI Engineer</title>
+  <meta name="description" content="Portfolio of Zainab Shaikh — Python Developer, AI/LLM Engineer, and NLP Researcher based in Mumbai." />
+  <meta property="og:title" content="Zainab Shaikh — Python Developer & AI Engineer" />
+  <meta property="og:description" content="Building scalable AI-powered systems with Python, LLMs, and FastAPI." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── PROGRESS BAR ── -->
+<div class="progress-bar"></div>
+
+<!-- ── CUSTOM CURSOR ── -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- ── PARTICLE CANVAS ── -->
+<canvas id="canvas"></canvas>
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav>
+  <div class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    zainab.dev
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#certificates">certs</a></li>
+    <li><a href="#education">education</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+    <a href="mailto:skzainab511@gmail.com" class="nav-cta">hire me</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ── -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about">about</a>
+  <a href="#skills">skills</a>
+  <a href="#experience">experience</a>
+  <a href="#projects">projects</a>
+  <a href="#certificates">certs</a>
+  <a href="#education">education</a>
+  <a href="#contact">contact</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">AVAILABLE FOR OPPORTUNITIES</div>
+
+        <h1 class="hero-name glitch" data-text="Zainab Shaikh">
+          Zainab<br><span class="accent">Shaikh</span>
+        </h1>
+
+        <div class="hero-typewriter-wrap">
+          <span class="tw-prefix">~/role $</span>
+          <span id="typewriter"></span>
+          <span class="cursor"></span>
+        </div>
+
+        <p class="hero-desc">
+          Results-driven Python Developer and AI/LLM Engineer with 1+ years of hands-on experience building
+          scalable backend systems, REST APIs, and intelligent automation. Based in Mumbai — passionate about
+          turning complex data into elegant, production-ready solutions.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
+          <a href="https://zainab-shaikh25.github.io/zainabshaikh/" target="_blank" class="btn-ghost">Live Portfolio ↗</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num" data-val="1" data-dec="0">1</div>
+            <div class="stat-label">YEARS EXP</div>
+          </div>
+          <div>
+            <div class="stat-num" data-val="6" data-dec="0">6</div>
+            <div class="stat-label">PROJECTS</div>
+          </div>
+          <div>
+            <div class="stat-num" data-val="4" data-dec="0">4</div>
+            <div class="stat-label">CERTS</div>
+          </div>
+          <div>
+            <div class="stat-num" data-val="89" data-dec="0">89</div>
+            <div class="stat-label">% NLP ACC.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="avatar-ring">
+          <div class="avatar-img" style="font-size:6rem; display:flex; align-items:center; justify-content:center;">👩‍💻</div>
+          <div class="avatar-badge">
+            <span class="avatar-badge-dot"></span>Open to work
+          </div>
+          <div class="floating-tag tag-tl">🐍 Python</div>
+          <div class="floating-tag tag-tr">🤖 LLM/AI</div>
+          <div class="floating-tag tag-bl">⚡ FastAPI</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// 01. about_me</div>
+      <h2 class="section-title">Who I <span class="accent">Am</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <p>
+          I'm <strong>Zainab Shaikh</strong>, a Python Developer and AI Specialist based in Byculla, Mumbai.
+          With a background spanning backend development, NLP research, and LLM integrations,
+          I bridge the gap between raw data and intelligent, production-ready systems.
+        </p>
+        <p>
+          Currently pursuing my <strong>M.Sc. in Information Technology</strong> at the University of Mumbai
+          while working as a <strong>Full Stack Developer</strong> at UnifyXperts, where I build and customize
+          ERP applications with Frappe/ERPNext and automate business workflows using Python.
+        </p>
+        <p>
+          My research interest lies in NLP — from sarcasm detection to resume intelligence. I love integrating
+          cutting-edge LLMs (Groq, OpenAI, Claude, Gemini) into real-world enterprise systems to create
+          tangible impact.
+        </p>
+
+        <div class="badge-row">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">LangChain</span>
+          <span class="tech-badge">FastAPI</span>
+          <span class="tech-badge">Django</span>
+          <span class="tech-badge">Flask</span>
+          <span class="tech-badge">Frappe/ERPNext</span>
+          <span class="tech-badge">RAG</span>
+          <span class="tech-badge">NLP</span>
+          <span class="tech-badge">Pandas</span>
+          <span class="tech-badge">scikit-learn</span>
+          <span class="tech-badge">SQL</span>
+          <span class="tech-badge">Power BI</span>
+          <span class="tech-badge">Git</span>
+          <span class="tech-badge">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="about-code reveal-right">
+        <div class="code-bar">
+          <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          <span class="code-filename">zainab_profile.py</span>
+        </div>
+        <div class="code-body">
+<span class="cm"># Zainab Shaikh — Developer Profile</span>
+<br>
+<span class="kw">class</span> <span class="fn">ZainabShaikh</span>:
+<br>&nbsp;&nbsp;<span class="kw">def</span> <span class="fn">__init__</span>(<span class="val">self</span>):
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">self</span>.name = <span class="str">"Zainab Shaikh"</span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">self</span>.role = <span class="str">"Python Developer & AI Engineer"</span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">self</span>.location = <span class="str">"Mumbai, India 🇮🇳"</span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">self</span>.experience = <span class="num">2</span>  <span class="cm"># years</span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">self</span>.education = <span class="str">"M.Sc. IT @ Univ. of Mumbai"</span>
+<br>
+<br>&nbsp;&nbsp;<span class="kw">def</span> <span class="fn">get_skills</span>(<span class="val">self</span>):
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"ai"</span>: [<span class="str">"LangChain"</span>, <span class="str">"RAG"</span>, <span class="str">"NLP"</span>],
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"backend"</span>: [<span class="str">"FastAPI"</span>, <span class="str">"Flask"</span>, <span class="str">"Django"</span>],
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"data"</span>: [<span class="str">"Pandas"</span>, <span class="str">"scikit-learn"</span>],
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"llms"</span>: [<span class="str">"Groq"</span>, <span class="str">"OpenAI"</span>, <span class="str">"Claude"</span>]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;&nbsp;<span class="kw">def</span> <span class="fn">current_status</span>(<span class="val">self</span>):
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"🟢 Open to opportunities"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SKILLS
+══════════════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// 02. skills</div>
+      <h2 class="section-title">Tech <span class="accent">Stack</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group reveal delay-1">
+        <h3>🐍 Python & Backend</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Python (Pandas, NumPy, scikit-learn)</span><span class="skill-pct">92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Flask / FastAPI</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Django</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Frappe / ERPNext</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">REST APIs / Webhooks</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal delay-2">
+        <h3>🤖 AI & Machine Learning</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">LLM Integration (Groq, OpenAI, Claude)</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">LangChain & RAG</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="82"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">NLP (LSTM, TF-IDF, KNN)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Prompt Engineering</span><span class="skill-pct">87%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="87"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Computer Vision / Gesture Recognition</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal delay-3">
+        <h3>📊 Data & Analytics</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">ETL Pipelines & Data Cleaning</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">SQL / MySQL / MariaDB</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Power BI / Tableau</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="78"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Excel & Cross-Tabulation</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal delay-4">
+        <h3>🌐 Web & Tools</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">JavaScript / HTML / CSS</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Streamlit</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Selenium / BeautifulSoup</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════════ -->
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// 03. experience</div>
+      <h2 class="section-title">Work <span class="accent">History</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-date">MAY 2025 – PRESENT</div>
+          <div class="tl-title">Full Stack Developer</div>
+          <div class="tl-company">@ UnifyXperts, Mumbai</div>
+          <ul class="tl-list">
+            <li>Developed and customized ERP applications using <strong>Frappe Framework & ERPNext</strong>, implementing custom business logic via Python.</li>
+            <li>Built and maintained <strong>REST API integrations</strong> with external platforms (marketplaces, logistics systems) using JSON-based workflows, directly applicable to survey data pipelines.</li>
+            <li>Automated business workflows including order processing, shipment tracking, and data synchronization — <strong>reducing manual effort</strong> and improving data accuracy.</li>
+            <li>Performed rigorous testing, debugging, code reviews, and documentation to ensure <strong>error-free, production-ready deliverables</strong>.</li>
+            <li>Collaborated with cross-functional teams to translate requirements into technical solutions, mirroring survey programming's stakeholder communication demands.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-date">MAY 2024 – AUG 2024</div>
+          <div class="tl-title">Data Science Intern</div>
+          <div class="tl-company">@ BlackCoffer, Remote</div>
+          <ul class="tl-list">
+            <li>Performed end-to-end <strong>ETL processes</strong>: data crawling, cleaning, preprocessing, and feature engineering using Python (Pandas, NumPy) and SQL.</li>
+            <li>Built and evaluated <strong>machine learning models</strong> for predictive analysis using scikit-learn; documented results and presented insights to stakeholders.</li>
+            <li>Reviewed and validated datasets for outliers, inconsistencies, and data quality — directly analogous to <strong>survey data QA</strong> and cross-tabulation tasks.</li>
+            <li>Created data visualizations and cross-tabulation reports using <strong>Power BI, Tableau, and Excel</strong> to communicate findings to business teams.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// 04. projects</div>
+      <h2 class="section-title">What I've <span class="accent">Built</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="projects-grid">
+      
+      <div class="project-card reveal delay-2">
+        <div class="project-top">
+          <span class="project-icon">🎨</span>
+          <div>
+          <span class="featured-badge">
+            <a href="https://ai-finger-paint.onrender.com/">VIEW LIVE</a>
+          </span>
+          <div class="project-links">
+            <a href="https://github.com/Zainab511/ai-finger-paint" target="_blank">↗ GitHub</a>
+          </div>
+          </div>
+        </div>
+        <div class="project-title">AI Finger Paint</div>
+        <div class="project-desc">HTML5 web app integrating Groq Llama 4 Vision API to identify user drawings made via mouse, touch, or hand gestures. Showcases rapid prototyping, computer vision, and API integration skills.</div>
+        <div class="project-tags">
+          <span class="tag">Groq Llama 4</span>
+          <span class="tag">Vision API</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Gesture</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal delay-1">
+        <div class="project-top">
+          <span class="project-icon">🤖</span>
+          <div>
+            <div class="project-links" style="margin-top:0.4rem;">
+              <a href="https://github.com/Zainab511/resume_screening_app" target="_blank">↗ GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-title">Resume Screening App</div>
+        <div class="project-desc">AI/NLP automation that screens resumes and matches applicant profiles to job requirements using KNN, TF-IDF, and a scikit-learn pipeline. Deployed as a Streamlit web app with real-world dataset preprocessing and classification.</div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">KNN</span>
+          <span class="tag">TF-IDF</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+      </div>
+
+
+      <div class="project-card reveal delay-2">
+        <div class="project-top">
+          <span class="project-icon">😏</span>
+          <div>
+          <span class="featured-badge">PUBLISHED</span>
+          <div class="project-links">
+            <a href="https://github.com/Zainab511/Sarcasm-Sniffer" target="_blank">↗ GitHub</a>
+          </div>
+          </div>
+        </div>
+        <div class="project-title">Sarcasm Sniffer</div>
+        <div class="project-desc">NLP text classification Flask web app using LSTM and Logistic Regression for sarcasm detection. Achieved <strong>75.4%</strong> and <strong>89.3%</strong> accuracy on Twitter and Kaggle datasets respectively.</div>
+        <div class="project-tags">
+          <span class="tag">Flask</span>
+          <span class="tag">LSTM</span>
+          <span class="tag">Logistic Regression</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal delay-3">
+        <div class="project-top">
+          <span class="project-icon">🧾</span>
+          <div>
+            <span class="featured-badge">FEATURED</span>
+            <div class="project-links" style="margin-top:0.4rem;">
+              <a href="https://github.com/Zainab511/Expense-Splitter" target="_blank">↗ GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-title">Expense Splitter</div>
+        <div class="project-desc">Python group expense management app with automated test coverage using Pytest. Clean architecture with full unit testing suite ensuring reliability.</div>
+        <div class="project-tags">
+          <span class="tag">Pyhton</span>
+          <span class="tag">Pytest</span>
+          <span class="tag">OOPs</span>
+          <span class="tag">Testing</span>
+          <span class="tag">REST API</span>
+        </div>
+      </div>
+
+            <div class="project-card reveal delay-3">
+        <div class="project-top">
+          <span class="project-icon">🛒</span>
+          <div class="project-links">
+            <a href="https://github.com/Zainab511/E-commerce-django" target="_blank">↗ GitHub</a>
+          </div>
+        </div>
+        <div class="project-title">E-Commerce Platform</div>
+        <div class="project-desc">Complete full-stack e-commerce web application built with Django (Python), JavaScript, and SQL. Demonstrates end-to-end Python web development competency including auth, cart, and order management.</div>
+        <div class="project-tags">
+          <span class="tag">Django</span>
+          <span class="tag">Python</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Full Stack</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal delay-1">
+        <div class="project-top">
+          <span class="project-icon">🏢</span>
+          <div>
+            <span class="featured-badge">FEATURED</span>
+          <div class="project-links">
+            <a href="https://github.com/Zainab511/frappe_groq_assistant" target="_blank">↗ GitHub</a>
+          </div>
+          </div>
+        </div>
+        <div class="project-title">Frappe Groq Assistant</div>
+        <div class="project-desc">Integrated Groq LLM API directly into ERPNext/Frappe framework for AI-powered business automation. Demonstrates ability to connect AI tools with enterprise-scale systems.</div>
+        <div class="project-tags">
+          <span class="tag">Groq API</span>
+          <span class="tag">ERPNext</span>
+          <span class="tag">Frappe</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal delay-1">
+        <div class="project-top">
+          <span class="project-icon">🩸</span>
+          <div>
+            <span class="featured-badge">ML PROJECT</span>
+          </div>
+        </div>
+
+        <div class="project-title">Malaria Detection using CNN</div>
+
+        <div class="project-desc">
+          Deep Learning-based malaria detection system trained on blood cell images to classify infected and uninfected samples. Built using Convolutional Neural Networks (CNN) with image preprocessing, feature extraction, and classification techniques for medical image analysis.
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">CNN</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal delay-2">
+        <div class="project-top">
+          <span class="project-icon">🔐</span>
+          <div>
+            <span class="featured-badge">IOT PROJECT</span>
+          </div>
+        </div>
+
+        <div class="project-title">Password Door-Lock System</div>
+
+        <div class="project-desc">
+          IoT-based smart door lock system developed using Arduino and C Programming. Features secure password authentication, motion detection using PIR sensor, servo-controlled locking mechanism, LCD display feedback, buzzer alerts, and LED status indicators.
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">IoT</span>
+          <span class="tag">C Programming</span>
+          <span class="tag">Servo Motor</span>
+          <span class="tag">Sensors</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal delay-3">
+        <div class="project-top">
+          <span class="project-icon">🛍️</span>
+          <div>
+            <span class="featured-badge">ANDROID APP</span>
+          </div>
+        </div>
+
+        <div class="project-title">Grocery Store Android Application</div>
+
+        <div class="project-desc">
+          Android-based grocery shopping application developed using Java and Android Studio. Enables users to browse products, place orders online, and manage purchases through an intuitive and user-friendly graphical interface.
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Android Studio</span>
+          <span class="tag">Mobile App</span>
+          <span class="tag">UI/UX</span>
+          <span class="tag">Android</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="view-all-wrap reveal">
+      <a href="https://github.com/Zainab511" target="_blank" class="btn-ghost">View All on GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CERTIFICATES
+══════════════════════════════════════ -->
+<section id="certificates">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// 05. certificates</div>
+      <h2 class="section-title">Certifi<span class="accent">cations</span></h2>
+      <div class="section-line"></div>
+      <p class="cert-intro">Continuous learning through recognized platforms and industry-standard courses.</p>
+    </div>
+
+    <div class="cert-grid">
+
+      <div class="cert-card reveal delay-3">
+        <div class="cert-placeholder">🗄️</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">GREAT LEARNING</div>
+          <div class="cert-name">SQL for Data Science</div>
+          <div class="cert-org">Great Learning</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal delay-4">
+        <div class="cert-placeholder">🌿</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">UDEMY</div>
+          <div class="cert-name">Git & GitHub Mastery</div>
+          <div class="cert-org">Udemy</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal delay-2">
+        <div class="cert-placeholder">📊</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">CISCO</div>
+          <div class="cert-name">Introduction to Data Science</div>
+          <div class="cert-org">Cisco Networking Academy • 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal delay-3">
+        <div class="cert-placeholder">📈</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">FORAGE</div>
+          <div class="cert-name">Accenture Data Analytics & Visualization</div>
+          <div class="cert-org">Forage • 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal delay-4">
+        <div class="cert-placeholder">📉</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">FORAGE</div>
+          <div class="cert-name">PwC Power BI Job Simulation</div>
+          <div class="cert-org">Forage • 2024</div>
+        </div>
+      </div>
+
+            <div class="cert-card reveal delay-1">
+        <div class="cert-placeholder">🐍</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">CISCO</div>
+          <div class="cert-name">Python Essentials 1</div>
+          <div class="cert-org">Cisco Networking Academy • 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal delay-1">
+        <div class="cert-placeholder">🕸️</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">NEO4J</div>
+          <div class="cert-name">Neo4j Fundamentals</div>
+          <div class="cert-org">Neo4j • 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal delay-2">
+        <div class="cert-placeholder">📋</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">UDEMY</div>
+          <div class="cert-name">Advanced MS Excel VBA</div>
+          <div class="cert-org">Udemy • 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal delay-3">
+        <div class="cert-placeholder">🎨</div>
+        <div class="cert-body">
+          <div class="cert-issuer-tag">SOPHIA COLLEGE</div>
+          <div class="cert-name">Graphic Design</div>
+          <div class="cert-org">Sophia College • 2022</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     EDUCATION
+══════════════════════════════════════ -->
+<section id="education">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// 06. education</div>
+      <h2 class="section-title">Edu<span class="accent">cation</span></h2>
+      <div class="section-line"></div>
+    </div>
+<!-- 
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">M.Sc. Information Technology</div>
+        <div class="edu-school">University of Mumbai, Mumbai</div>
+        <div class="edu-year">2025 – 2027</div>
+        <span class="edu-status">Currently Pursuing</span>
+      </div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">M.Sc. Information Technology</div>
+        <div class="edu-school">University of Mumbai, Mumbai</div>
+        <div class="edu-year">2025 – 2027</div>
+        <span class="edu-status">Currently Pursuing</span>
+      </div>
+    </div> -->
+        <!-- M.Sc -->
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">M.Sc. Information Technology</div>
+        <div class="edu-school">University of Mumbai, Mumbai</div>
+        <div class="edu-year">2025 – 2027</div>
+        <span class="edu-status">Currently Pursuing</span>
+        <p style="margin-top:0.8rem; color:var(--text2); line-height:1.7;">
+          Pursuing advanced studies in Information Technology with focus on
+          Artificial Intelligence, Machine Learning, Data Science, and
+          Software Development.
+        </p>
+      </div>
+    </div>
+
+    <!-- B.Sc -->
+    <div class="edu-card reveal" style="margin-top:1.5rem;">
+      <div class="edu-icon">🏆</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science in Information Technology</div>
+        <div class="edu-school">
+          Sophia College (Autonomous), Mumbai | University of Mumbai
+        </div>
+        <div class="edu-year">2021 – 2024</div>
+        <span class="edu-status">CGPA: 9.8 / 10</span>
+
+        <p style="margin-top:0.8rem; color:var(--text2); line-height:1.7;">
+          Built a strong foundation in Information Technology through coursework
+          in Data Structures, Algorithms, Database Management Systems,
+          Software Engineering, Artificial Intelligence, Machine Learning,
+          Data Science, and Business Intelligence. Participated in multiple
+          academic projects that strengthened practical problem-solving and
+          software development skills.
+        </p>
+      </div>
+    </div>
+
+    <!-- HSC -->
+    <div class="edu-card reveal" style="margin-top:1.5rem;">
+      <div class="edu-icon">📚</div>
+      <div>
+        <div class="edu-degree">Higher Secondary Education (Science)</div>
+        <div class="edu-school">
+          Sophia College (Autonomous), Mumbai | Maharashtra State Board
+        </div>
+        <div class="edu-year">2020 – 2021</div>
+        <span class="edu-status">Percentage: 85%</span>
+
+        <p style="margin-top:0.8rem; color:var(--text2); line-height:1.7;">
+          Completed higher secondary education with a focus on science and
+          mathematics, developing analytical thinking and quantitative skills
+          that laid the foundation for further studies in Information Technology.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem;" class="reveal">
+      <div class="section-label" style="margin-bottom:1.5rem;">// extracurricular</div>
+      <div class="tl-card">
+        <div class="tl-date">2024</div>
+        <div class="tl-title">Tech & Design Team Member</div>
+        <div class="tl-company">@ Munsophical: Model United Nations — Sophia College</div>
+        <ul class="tl-list">
+          <li>Coordinated technical support and designed promotional materials, demonstrating cross-team collaboration and project ownership.</li>
+        </ul>
+      </div>
+      <div class="tl-card">
+        <div class="tl-date">2023</div>
+        <div class="tl-title">Outreach Volunteer</div>
+        <div class="tl-company">@ Kshamata Foundation</div>
+        <ul class="tl-list">
+          <li>Participated in community outreach initiatives and social impact programs.</li>
+          <li>Developed communication, teamwork, and event coordination skills.</li>
+        </ul>
+      </div>
+
+      <div class="tl-card">
+        <div class="tl-date">2022 - 2023</div>
+        <div class="tl-title">Graphic Design Team Member</div>
+        <div class="tl-company">@ Sophia College (Autonomous)</div>
+        <ul class="tl-list">
+          <li>Designed posters, social media creatives, and promotional material for college events.</li>
+          <li>Collaborated with student committees to maintain consistent event branding.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// 07. contact</div>
+      <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <p class="contact-desc">
+          I'm currently open to new opportunities — whether it's a full-time role, freelance project,
+          or collaboration on something ambitious. If you have an interesting problem to solve, let's talk.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:skzainab511@gmail.com" class="contact-link">
+            <span class="cl-icon">✉️ EMAIL</span>
+            skzainab511@gmail.com
+          </a>
+          <a href="tel:+919136773576" class="contact-link">
+            <span class="cl-icon">📱 PHONE</span>
+            +91 9136773576
+          </a>
+          <a href="http://www.linkedin.com/in/zainab-shaikh-857831227" target="_blank" class="contact-link">
+            <span class="cl-icon">💼 LINKEDIN</span>
+            zainab-shaikh-857831227
+          </a>
+          <a href="https://github.com/Zainab511" target="_blank" class="contact-link">
+            <span class="cl-icon">🐙 GITHUB</span>
+            github.com/Zainab511
+          </a>
+          <a href="https://zainab-shaikh25.github.io/zainabshaikh/" target="_blank" class="contact-link">
+            <span class="cl-icon">🌐 PORTFOLIO</span>
+            zainab-shaikh25.github.io
+          </a>
+          <a href="https://maps.app.goo.gl/kLX9zcb5qCpDWome8" class="contact-link">
+            <span class="cl-icon">📍 LOCATION</span>
+            Byculla, Mumbai – 400011
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-terminal reveal-right">
+        <div class="terminal">
+          <div class="term-bar">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+            <span class="term-title">terminal — zainab@dev</span>
+          </div>
+          <div class="term-body">
+            <div><span class="term-prompt">zainab@dev:~$</span> whoami</div>
+            <div class="term-output">Python Developer | AI/LLM Engineer | NLP Researcher</div>
+            <br>
+            <div><span class="term-prompt">zainab@dev:~$</span> cat status.txt</div>
+            <div class="term-output">🟢 Open to work — Full-time / Freelance</div>
+            <br>
+            <div><span class="term-prompt">zainab@dev:~$</span> ls skills/</div>
+            <div class="term-output">python/ langchain/ rag/ flask/ django/ frappe/ nlp/ sql/ powerbi/</div>
+            <br>
+            <div><span class="term-prompt">zainab@dev:~$</span> echo $LOCATION</div>
+            <div class="term-output">Mumbai, India 🇮🇳</div>
+            <br>
+            <div><span class="term-prompt">zainab@dev:~$</span> cat contact.json</div>
+            <div class="term-output">{ "email": "skzainab511@gmail.com",</div>
+            <div class="term-output">&nbsp;&nbsp;"phone": "+91 9136773576",</div>
+            <div class="term-output">&nbsp;&nbsp;"github": "Zainab511",</div>
+            <div class="term-output">&nbsp;&nbsp;"available": true }</div>
+            <br>
+            <div><span class="term-prompt">zainab@dev:~$</span> <span class="cursor"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>Crafted with <span class="accent">❤️</span> by <span class="accent">Zainab Shaikh</span> — Mumbai, India</div>
+    <div class="footer-links">
+      <a href="https://github.com/Zainab511" target="_blank">GitHub</a>
+      <a href="http://www.linkedin.com/in/zainab-shaikh-857831227" target="_blank">LinkedIn</a>
+      <a href="https://zainab-shaikh25.github.io/zainabshaikh/" target="_blank">Live Portfolio</a>
+      <a href="mailto:skzainab511@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

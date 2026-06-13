@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zainab Shaikh — Python & AI Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050a0e;
+  --bg2:#0a1018;
+  --bg3:#0f1923;
+  --glass:rgba(255,255,255,0.04);
+  --glass-border:rgba(255,255,255,0.08);
+  --green:#00ff9c;
+  --green2:#00cc7a;
+  --green-dim:rgba(0,255,156,0.12);
+  --green-glow:rgba(0,255,156,0.3);
+  --blue:#4fc3f7;
+  --purple:#c084fc;
+  --amber:#fbbf24;
+  --text:#e2e8f0;
+  --muted:#64748b;
+  --muted2:#94a3b8;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;line-height:1.6}
+
+/* ── CANVAS ── */
+#canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(5,10,14,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--glass-border)}
+.nav-logo{font-family:var(--mono);font-size:1rem;color:var(--green);font-weight:700;letter-spacing:-0.02em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:0.8rem;color:var(--muted2);text-decoration:none;transition:color 0.2s;letter-spacing:0.05em}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{font-family:var(--mono);font-size:0.8rem;background:transparent;border:1px solid var(--green);color:var(--green);padding:0.4rem 1rem;border-radius:4px;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.nav-cta:hover{background:var(--green-dim)}
+
+/* ── SECTIONS ── */
+section{position:relative;z-index:10;padding:5rem 0}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:5rem}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-eyebrow{font-family:var(--mono);font-size:0.8rem;color:var(--green);letter-spacing:0.1em;margin-bottom:1rem}
+.hero-name{font-family:var(--sans);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem;color:#fff}
+.hero-name span{color:var(--green)}
+.hero-title{font-family:var(--mono);font-size:1.1rem;color:var(--muted2);margin-bottom:1.5rem;min-height:1.8em}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--green);vertical-align:middle;animation:blink 1s step-end infinite;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-desc{color:var(--muted2);font-size:0.95rem;line-height:1.8;margin-bottom:2rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{font-family:var(--mono);font-size:0.85rem;background:var(--green);color:#000;padding:0.7rem 1.6rem;border-radius:4px;text-decoration:none;font-weight:700;transition:all 0.2s}
+.btn-primary:hover{background:var(--green2);transform:translateY(-1px)}
+.btn-ghost{font-family:var(--mono);font-size:0.85rem;border:1px solid var(--glass-border);color:var(--muted2);padding:0.7rem 1.6rem;border-radius:4px;text-decoration:none;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.hero-stats{display:flex;gap:2rem;margin-top:2.5rem}
+.stat{text-align:left}
+.stat-num{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--green);line-height:1}
+.stat-label{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+
+/* ── TERMINAL CARD ── */
+.terminal{background:var(--bg3);border:1px solid var(--glass-border);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:0.82rem}
+.term-bar{background:#1a2332;padding:0.7rem 1rem;display:flex;align-items:center;gap:0.5rem}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot.r{background:#ff5f56}.dot.y{background:#ffbd2e}.dot.g{background:#27c93f}
+.term-body{padding:1.4rem;line-height:2;color:#adb5bd}
+.term-body .kw{color:var(--purple)}
+.term-body .str{color:var(--amber)}
+.term-body .fn{color:var(--blue)}
+.term-body .val{color:var(--green)}
+.term-body .cm{color:var(--muted)}
+.term-body .prompt{color:var(--green)}
+
+/* ── SECTION HEADER ── */
+.section-label{font-family:var(--mono);font-size:0.75rem;color:var(--green);letter-spacing:0.12em;margin-bottom:0.5rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#fff;margin-bottom:1rem}
+.section-title span{color:var(--green)}
+.section-divider{width:50px;height:2px;background:var(--green);margin-bottom:3rem}
+
+/* ── ABOUT ── */
+#about{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--muted2);font-size:0.95rem;line-height:1.9;margin-bottom:1rem}
+.about-code{background:var(--bg3);border:1px solid var(--glass-border);border-radius:8px;padding:1.5rem;font-family:var(--mono);font-size:0.78rem;line-height:2}
+.about-code .kw{color:var(--purple)}
+.about-code .str{color:var(--amber)}
+.about-code .fn{color:var(--blue)}
+.about-code .val{color:var(--green)}
+.about-code .cm{color:var(--muted)}
+.badge-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.badge{font-family:var(--mono);font-size:0.72rem;padding:0.3rem 0.75rem;border-radius:20px;border:1px solid var(--glass-border);color:var(--muted2);background:var(--glass)}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.skill-group h3{font-family:var(--mono);font-size:0.8rem;color:var(--green);letter-spacing:0.08em;margin-bottom:1.2rem}
+.skill-item{margin-bottom:1rem}
+.skill-top{display:flex;justify-content:space-between;margin-bottom:0.4rem}
+.skill-name{font-size:0.85rem;color:var(--text)}
+.skill-pct{font-family:var(--mono);font-size:0.75rem;color:var(--green)}
+.skill-bar{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--green2),var(--green));border-radius:2px;width:0;transition:width 1.2s cubic-bezier(0.16,1,0.3,1)}
+
+/* ── EXPERIENCE ── */
+#experience{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--green),transparent)}
+.tl-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+.tl-dot{position:absolute;left:-2.45rem;top:0.3rem;width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green-glow)}
+.tl-date{font-family:var(--mono);font-size:0.72rem;color:var(--green);letter-spacing:0.08em;margin-bottom:0.3rem}
+.tl-title{font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:0.2rem}
+.tl-company{font-family:var(--mono);font-size:0.8rem;color:var(--blue);margin-bottom:0.8rem}
+.tl-list{list-style:none;padding:0}
+.tl-list li{font-size:0.88rem;color:var(--muted2);padding:0.2rem 0;padding-left:1rem;position:relative}
+.tl-list li::before{content:'▸';position:absolute;left:0;color:var(--green);font-size:0.7rem;top:0.25rem}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.project-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;padding:1.5rem;transition:all 0.25s;cursor:pointer;text-decoration:none;display:block;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.project-card:hover{border-color:rgba(0,255,156,0.3);transform:translateY(-3px);background:rgba(0,255,156,0.04)}
+.project-card:hover::before{transform:scaleX(1)}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem}
+.project-icon{font-size:1.5rem}
+.project-links{display:flex;gap:0.5rem}
+.project-links a{color:var(--muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s}
+.project-links a:hover{color:var(--green)}
+.project-title{font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.5rem}
+.project-desc{font-size:0.83rem;color:var(--muted2);line-height:1.7;margin-bottom:1rem}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tag{font-family:var(--mono);font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:3px;background:var(--green-dim);color:var(--green);border:1px solid rgba(0,255,156,0.2)}
+.featured-badge{font-family:var(--mono);font-size:0.65rem;background:linear-gradient(90deg,var(--green),var(--blue));color:#000;padding:0.2rem 0.6rem;border-radius:3px;font-weight:700}
+
+/* ── RESEARCH ── */
+#research{background:var(--bg2)}
+.research-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;padding:2rem;border-left:3px solid var(--green)}
+.research-journal{font-family:var(--mono);font-size:0.72rem;color:var(--green);letter-spacing:0.08em;margin-bottom:0.5rem}
+.research-title{font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.8rem;line-height:1.4}
+.research-meta{display:flex;gap:2rem;flex-wrap:wrap}
+.research-meta-item{font-size:0.8rem;color:var(--muted2)}
+.research-meta-item strong{color:var(--text)}
+
+/* ── CERTIFICATIONS ── */
+#certifications{background:var(--bg)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.cert-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;padding:1.2rem;transition:all 0.2s}
+.cert-card:hover{border-color:rgba(0,255,156,0.3);background:var(--green-dim)}
+.cert-icon{font-family:var(--mono);font-size:0.7rem;color:var(--green);margin-bottom:0.5rem}
+.cert-name{font-size:0.88rem;font-weight:500;color:#fff;margin-bottom:0.2rem}
+.cert-issuer{font-size:0.78rem;color:var(--muted)}
+
+/* ── CONTACT ── */
+#contact{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-links{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+.contact-link{display:flex;align-items:center;gap:1rem;color:var(--muted2);text-decoration:none;font-size:0.9rem;transition:color 0.2s;padding:0.8rem 1rem;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass)}
+.contact-link:hover{color:var(--green);border-color:rgba(0,255,156,0.3)}
+.contact-link-icon{font-family:var(--mono);font-size:0.75rem;color:var(--green);min-width:60px}
+.contact-form-note{font-size:0.85rem;color:var(--muted2);line-height:1.8}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--glass-border);padding:1.5rem 2rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:var(--muted)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero-inner,.about-grid,.skills-grid,.contact-inner{grid-template-columns:1fr;gap:2rem}
+  .hero-stats{gap:1.5rem}
+  .nav-links{display:none}
+  section{padding:3rem 0}
+}
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">zainab.sh</span>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#research">research</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <a href="mailto:skzainab511@gmail.com" class="nav-cta">hire_me()</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">// hello, world 👋</p>
+        <h1 class="hero-name">Zainab<br><span>Shaikh</span></h1>
+        <p class="hero-title"><span id="typewriter"></span><span class="cursor"></span></p>
+        <p class="hero-desc">Python Developer & AI Engineer based in Mumbai. I build scalable backend systems, intelligent agents, and deploy ML models that solve real problems. Currently working with LLMs, MCP integrations, and FastAPI at UnifyXperts.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">view_projects()</a>
+          <a href="mailto:skzainab511@gmail.com" class="btn-ghost">get_in_touch()</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Projects Built</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-label">Research Paper</div></div>
+          <div class="stat"><div class="stat-num">8.17</div><div class="stat-label">Journal Impact Factor</div></div>
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="term-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span style="font-size:0.72rem;color:#6b7280;margin-left:0.5rem">zainab@portfolio ~ </span></div>
+        <div class="term-body">
+          <div><span class="prompt">$</span> <span class="fn">python</span> zainab.py</div>
+          <div>&nbsp;</div>
+          <div><span class="cm"># Loading developer profile...</span></div>
+          <div><span class="kw">class</span> <span class="fn">Developer</span>:</div>
+          <div>&nbsp;&nbsp;<span class="kw">def</span> <span class="fn">__init__</span>(self):</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.name = <span class="str">"Zainab Shaikh"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.role = <span class="str">"Python + AI Dev"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.location = <span class="str">"Mumbai, IN 🇮🇳"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.stack = [</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"FastAPI"</span>, <span class="str">"LangChain"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"LLMs"</span>, <span class="str">"MCP"</span>, <span class="str">"RAG"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;]</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.open_to_work = <span class="val">True</span></div>
+          <div>&nbsp;</div>
+          <div><span class="val">&gt;&gt;&gt;</span> <span class="fn">Developer</span>().open_to_work</div>
+          <div><span class="val">True</span> ✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">// 01. about_me</p>
+      <h2 class="section-title">Who I <span>Am</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid reveal">
+      <div>
+        <div class="about-text">
+          <p>I'm a Python developer with a passion for building things at the intersection of backend engineering and AI. Currently at <strong style="color:#fff">UnifyXperts</strong>, I build ERP automation, REST APIs, and LLM-powered agent workflows using Frappe, FastAPI, and LangChain.</p>
+          <p>My research background in NLP (published in a UGC-listed journal) keeps me grounded in the fundamentals while I build production systems. I love problems that require both solid engineering and machine learning thinking.</p>
+          <p>When I'm not coding, I'm exploring new LLM frameworks, contributing to open source, or obsessing over system design papers.</p>
+        </div>
+        <div class="badge-row">
+          <span class="badge">FastAPI</span><span class="badge">LangChain</span><span class="badge">LLMs</span><span class="badge">MCP</span><span class="badge">RAG</span><span class="badge">Docker</span><span class="badge">Pytest</span><span class="badge">NLP</span><span class="badge">ERPNext</span><span class="badge">Frappe</span>
+        </div>
+      </div>
+      <div class="about-code">
+        <div><span class="cm"># zainab's dev dna</span></div>
+        <div>&nbsp;</div>
+        <div><span class="kw">education</span> = {</div>
+        <div>&nbsp;&nbsp;<span class="str">"degree"</span>: <span class="val">"MSc IT (Pursuing)"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="str">"college"</span>: <span class="val">"AIPCE, Mumbai"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="str">"prev_cgpa"</span>: <span class="val">9.8</span></div>
+        <div>}</div>
+        <div>&nbsp;</div>
+        <div><span class="kw">interests</span> = [</div>
+        <div>&nbsp;&nbsp;<span class="str">"AI Agents"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="str">"LLM Engineering"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="str">"Backend Systems"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="str">"NLP Research"</span></div>
+        <div>]</div>
+        <div>&nbsp;</div>
+        <div><span class="fn">print</span>(<span class="str">"Ready to ship 🚀"</span>)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">// 02. tech_stack</p>
+      <h2 class="section-title">Skills & <span>Tools</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="skills-grid reveal" id="skills-grid">
+      <div class="skill-group">
+        <h3>// Languages & Backend</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Python</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">FastAPI / Flask / Django</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">SQL / MySQL / MariaDB</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Java / R</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <h3>// AI / ML / LLM</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">LangChain / RAG / MCP</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">OpenAI / Groq / Gemini APIs</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">scikit-learn / LSTM / NLP</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Pandas / NumPy</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <h3>// DevOps & Tools</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Pytest / Testing</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Docker / Kubernetes</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">REST APIs / Webhooks</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <h3>// Data & Visualization</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Power BI / Tableau</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Streamlit</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">HTML / CSS / JS</span><span class="skill-pct">72%</span></div><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Selenium / BeautifulSoup</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">// 03. work_experience</p>
+      <h2 class="section-title">Where I've <span>Worked</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">MAY 2025 — PRESENT</div>
+        <div class="tl-title">Full Stack Python Developer</div>
+        <div class="tl-company">UnifyXperts · Mumbai</div>
+        <ul class="tl-list">
+          <li>Built scalable backend services using Python + Frappe Framework (ERPNext) with OOP and microservices patterns</li>
+          <li>Developed <strong style="color:#fff">Frappe Groq Assistant</strong> — LLM + MCP integration for AI-driven workflow orchestration inside ERPNext</li>
+          <li>Built and integrated REST APIs for marketplace, logistics & external systems via JSON automation and Webhooks</li>
+          <li>Implemented data pipelines, wrote testable code with Pytest, and led code reviews</li>
+          <li>Automated order processing, shipment tracking, and data sync using Python agent workflows</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">MAY 2024 — AUG 2024</div>
+        <div class="tl-title">Data Science Intern</div>
+        <div class="tl-company">BlackCoffer · Remote</div>
+        <ul class="tl-list">
+          <li>Data crawling, cleaning, ETL, and feature engineering using Python (Pandas, NumPy) and SQL</li>
+          <li>Implemented ML models for predictive analysis with scikit-learn</li>
+          <li>Visualized insights with Power BI and Tableau for cross-functional business stakeholders</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">// 04. projects</p>
+      <h2 class="section-title">Things I've <span>Built</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="projects-grid reveal">
+
+      <a href="https://github.com/Zainab511" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-icon">🤖</span>
+          <div><span class="featured-badge">FEATURED</span></div>
+        </div>
+        <h3 class="project-title">Frappe Groq Assistant</h3>
+        <p class="project-desc">AI assistant inside ERPNext using Groq LLM API, LangChain, and MCP server integration. Implements RAG for dynamic data retrieval with Flask REST APIs for backend orchestration.</p>
+        <div class="project-tags"><span class="tag">LangChain</span><span class="tag">MCP</span><span class="tag">Groq LLM</span><span class="tag">RAG</span><span class="tag">Flask</span><span class="tag">ERPNext</span></div>
+      </a>
+
+      <a href="https://github.com/Zainab511" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-icon">⚡</span>
+          <div><span class="featured-badge">FEATURED</span></div>
+        </div>
+        <h3 class="project-title">AI Finger Paint</h3>
+        <p class="project-desc">Interactive AI-powered web application built with FastAPI backend. Complete with unit and integration tests using Pytest, containerized for deployment.</p>
+        <div class="project-tags"><span class="tag">FastAPI</span><span class="tag">Pytest</span><span class="tag">Python</span><span class="tag">AI</span><span class="tag">Docker</span></div>
+      </a>
+
+      <a href="https://github.com/Zainab511/Sarcasm-Sniffer" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-icon">🔬</span>
+          <div><span class="featured-badge">PUBLISHED</span></div>
+        </div>
+        <h3 class="project-title">Sarcasm Sniffer</h3>
+        <p class="project-desc">NLP sarcasm detection web app using LSTM (75.4%) and Logistic Regression (89.3%). Research published in UGC-listed AJANTA Journal (IF: 8.172).</p>
+        <div class="project-tags"><span class="tag">LSTM</span><span class="tag">NLP</span><span class="tag">Flask</span><span class="tag">scikit-learn</span><span class="tag">Twitter API</span></div>
+      </a>
+
+      <a href="https://github.com/Zainab511" target="_blank" class="project-card">
+        <div class="project-top"><span class="project-icon">🧾</span></div>
+        <h3 class="project-title">Expense Splitter</h3>
+        <p class="project-desc">Python group expense management app with automated test coverage using Pytest. Clean architecture with full unit testing suite ensuring reliability.</p>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">Pytest</span><span class="tag">OOP</span><span class="tag">Testing</span></div>
+      </a>
+
+      <a href="https://github.com/Zainab511/resume_screening_app" target="_blank" class="project-card">
+        <div class="project-top"><span class="project-icon">📄</span></div>
+        <h3 class="project-title">Resume Screening Tool</h3>
+        <p class="project-desc">Streamlit application using KNN classification model for automated resume screening. End-to-end ML pipeline from preprocessing to deployed web interface.</p>
+        <div class="project-tags"><span class="tag">Streamlit</span><span class="tag">KNN</span><span class="tag">NLP</span><span class="tag">scikit-learn</span></div>
+      </a>
+
+      <a href="https://github.com/Zainab511" target="_blank" class="project-card">
+        <div class="project-top"><span class="project-icon">🛒</span></div>
+        <h3 class="project-title">E-Commerce Django App</h3>
+        <p class="project-desc">Full-featured e-commerce platform built with Django. Product management, cart system, and order workflows with a clean MVC architecture.</p>
+        <div class="project-tags"><span class="tag">Django</span><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">REST API</span></div>
+      </a>
+
+      <a href="https://github.com/Zainab511" target="_blank" class="project-card">
+        <div class="project-top"><span class="project-icon">💬</span></div>
+        <h3 class="project-title">AI Order Assistant</h3>
+        <p class="project-desc">Conversational AI chatbot using Groq LLM + LangChain with RAG for dynamic data retrieval and real-time order management via Flask REST APIs.</p>
+        <div class="project-tags"><span class="tag">Groq</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Flask</span><span class="tag">LLM</span></div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="https://github.com/Zainab511" target="_blank" class="btn-ghost">view all on github →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">// 05. research</p>
+      <h2 class="section-title">Published <span>Research</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="research-card reveal">
+      <div class="research-journal">📄 AJANTA JOURNAL · UGC LISTED · ISSN 2277-5730 · VOLUME XV, ISSUE II · APRIL–JUNE 2026</div>
+      <h3 class="research-title">Emoji-Integrated Sarcasm Detection in Business Reviews: Comparing Machine Learning and Deep Learning Approaches</h3>
+      <div class="research-meta">
+        <div class="research-meta-item"><strong>Impact Factor</strong><br>8.172</div>
+        <div class="research-meta-item"><strong>Domain</strong><br>NLP / Sentiment Analysis</div>
+        <div class="research-meta-item"><strong>Models</strong><br>LSTM · Logistic Regression</div>
+        <div class="research-meta-item"><strong>Presented At</strong><br>National Conference, Mumbai · April 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">// 06. certifications</p>
+      <h2 class="section-title">Courses & <span>Certs</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="certs-grid reveal">
+      <div class="cert-card"><div class="cert-icon">◈ CISCO</div><div class="cert-name">Data Science</div><div class="cert-issuer">Cisco Networking Academy</div></div>
+      <div class="cert-card"><div class="cert-icon">◈ UDEMY</div><div class="cert-name">Python from A to Z</div><div class="cert-issuer">Udemy</div></div>
+      <div class="cert-card"><div class="cert-icon">◈ GREAT LEARNING</div><div class="cert-name">SQL for Data Science</div><div class="cert-issuer">Great Learning</div></div>
+      <div class="cert-card"><div class="cert-icon">◈ UDEMY</div><div class="cert-name">Git & GitHub Bootcamp</div><div class="cert-issuer">Udemy</div></div>
+      <div class="cert-card"><div class="cert-icon">◈ FORAGE</div><div class="cert-name">Data Analytics & Visualization</div><div class="cert-issuer">Accenture North America</div></div>
+      <div class="cert-card"><div class="cert-icon">◈ FORAGE</div><div class="cert-name">Power BI Job Simulation</div><div class="cert-issuer">PwC Switzerland</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="reveal">
+        <p class="section-label">// 07. get_in_touch</p>
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <div class="section-divider"></div>
+        <p class="contact-form-note">I'm open to Python Developer, AI Engineer, and Backend roles. Have a project idea? Let's build something together. My inbox is always open.</p>
+        <div class="contact-links">
+          <a href="mailto:skzainab511@gmail.com" class="contact-link"><span class="contact-link-icon">EMAIL</span>skzainab511@gmail.com</a>
+          <a href="tel:+919136773576" class="contact-link"><span class="contact-link-icon">PHONE</span>+91 91367 73576</a>
+          <a href="https://www.linkedin.com/in/zainab-shaikh-857831227/" target="_blank" class="contact-link"><span class="contact-link-icon">LINKEDIN</span>zainab-shaikh-857831227</a>
+          <a href="https://github.com/Zainab511" target="_blank" class="contact-link"><span class="contact-link-icon">GITHUB</span>github.com/Zainab511</a>
+          <a href="https://api.whatsapp.com/send?phone=919136773576" target="_blank" class="contact-link"><span class="contact-link-icon">WHATSAPP</span>+91 91367 73576</a>
+        </div>
+      </div>
+      <div class="terminal reveal">
+        <div class="term-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span style="font-size:0.72rem;color:#6b7280;margin-left:0.5rem">contact.py</span></div>
+        <div class="term-body">
+          <div><span class="cm"># open to opportunities</span></div>
+          <div>&nbsp;</div>
+          <div><span class="kw">status</span> = {</div>
+          <div>&nbsp;&nbsp;<span class="str">"available"</span>: <span class="val">True</span>,</div>
+          <div>&nbsp;&nbsp;<span class="str">"looking_for"</span>: [</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Python Developer"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"AI Engineer"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Backend Engineer"</span></div>
+          <div>&nbsp;&nbsp;],</div>
+          <div>&nbsp;&nbsp;<span class="str">"location"</span>: <span class="str">"Mumbai"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="str">"remote"</span>: <span class="val">True</span></div>
+          <div>}</div>
+          <div>&nbsp;</div>
+          <div><span class="fn">send_email</span>(<span class="str">"skzainab511@gmail.com"</span>)</div>
+          <div><span class="val">&gt;&gt;&gt;</span> Message sent ✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span style="color:var(--green)">zainab.sh</span> · built with 🖤 · Mumbai, India · 2026
+</footer>
+
+<script>
+// ── PARTICLE CANVAS ──
+const canvas=document.getElementById('canvas');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+class Particle{
+  constructor(){this.reset()}
+  reset(){
+    this.x=Math.random()*W;
+    this.y=Math.random()*H;
+    this.size=Math.random()*1.5+0.3;
+    this.speedX=(Math.random()-0.5)*0.3;
+    this.speedY=-Math.random()*0.5-0.1;
+    this.opacity=Math.random()*0.5+0.1;
+    this.color=Math.random()>0.7?'#00ff9c':Math.random()>0.5?'#4fc3f7':'#c084fc';
+  }
+  update(){
+    this.x+=this.speedX;this.y+=this.speedY;
+    if(this.y<-5||this.x<-5||this.x>W+5){this.reset();this.y=H+5}
+  }
+  draw(){
+    ctx.save();ctx.globalAlpha=this.opacity;ctx.fillStyle=this.color;
+    ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+}
+for(let i=0;i<120;i++)particles.push(new Particle());
+function animate(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{p.update();p.draw()});
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ── TYPEWRITER ──
+const phrases=["Python Developer","AI/ML Engineer","LLM Integrator","Backend Engineer","NLP Researcher"];
+let pi=0,ci=0,deleting=false,tw=document.getElementById('typewriter');
+function type(){
+  const phrase=phrases[pi];
+  if(!deleting){
+    tw.textContent=phrase.slice(0,ci+1);ci++;
+    if(ci===phrase.length){deleting=true;setTimeout(type,1800);return}
+  } else {
+    tw.textContent=phrase.slice(0,ci-1);ci--;
+    if(ci===0){deleting=false;pi=(pi+1)%phrases.length}
+  }
+  setTimeout(type,deleting?60:90);
+}
+type();
+
+// ── SCROLL REVEAL ──
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.1});
+reveals.forEach(r=>obs.observe(r));
+
+// ── SKILL BARS ──
+const skillObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.skill-fill').forEach(bar=>{
+        bar.style.width=bar.dataset.w+'%';
+      });
+      skillObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+const sg=document.getElementById('skills-grid');
+if(sg)skillObs.observe(sg);
+</script>
+</body>
+</html>
